@@ -3,26 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store - L&amp;A Café</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Coffee Menu - L&amp;A Café</title>
 </head>
 <body>
     <header>
         <nav class="navbar">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="store.html">Store</a></li>
+                <li><a href="products.html">Products</a></li>
                 <li><a href="cart.html">Cart</a></li>
+                <li><a href="encryption.html">Encryption Demo</a></li>
             </ul>
         </nav>
     </header>
-
     <div class="container">
-        <h1>Welcome to Our Store</h1>
-        <p>What would you like to browse today?</p>
-        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
-            <a href="menu.html" class="button">☕ Coffee Menu</a>
-            <a href="desserts.html" class="button">🍰 Desserts Menu</a>
+        <h1>Our Coffee Menu</h1>
+        <div class="products">
+            <div class="product">
+                <img src="images/latte.jpg" alt="Latte">
+                <h2>Classic Latte</h2>
+                <p>$5</p>
+                <button class="button add-to-cart" data-name="Classic Latte" data-price="5">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/iced-coffee.jpg" alt="Iced Coffee">
+                <h2>Iced Coffee</h2>
+                <p>$4.5</p>
+                <button class="button add-to-cart" data-name="Iced Coffee" data-price="4.5">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/cappuccino.jpg" alt="Cappuccino">
+                <h2>Cappuccino</h2>
+                <p>$5.5</p>
+                <button class="button add-to-cart" data-name="Cappuccino" data-price="5.5">Add to Cart</button>
+            </div>
         </div>
     </div>
 </body>
