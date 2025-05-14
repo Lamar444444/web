@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Demo - L&amp;A Café</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const publicKey = "PUBLIC_KEY_EXAMPLE";
+        const privateKey = "PRIVATE_KEY_EXAMPLE";
+
+        function encryptMessage(message) {
+            return btoa(`${message}:${publicKey}`);
+        }
+
+        function decryptMessage(encryptedMessage) {
+            try {
+                const decoded = atob(encryptedMessage);
+                const [message, key] = decoded.split(":");
+                return key === publicKey ? message : "Decryption failed!";
+            } catch (error) {
+                return "Invalid input or corrupted message!";
+            }
+        }
+
+        function demonstrateEncryption() {
+            const message = document.getElementById("message").value.trim();
+            if (!message) {
+                alert("Please enter a message to encrypt.");
+                return;
+            }
+            const encrypted = encryptMessage(message);
+            const decrypted = decryptMessage(encrypted);
+            document.getElementById("encrypted").textContent = encrypted;
+            document.getElementById("decrypted").textContent = decrypted;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="encryption.html">Encryption Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Encryption Demo</h1>
+        <p>This page demonstrates a simple encryption/decryption process using JavaScript.</p>
+
+        <label for="message">Enter a message to encrypt:</label>
+        <input type="text" id="message" placeholder="e.g. Order #123" />
+
+        <button onclick="demonstrateEncryption()">Encrypt</button>
+
+        <h3>🔒 Encrypted Message:</h3>
+        <p id="encrypted" class="output-box"></p>
+
+        <h3>🔓 Decrypted Message:</h3>
+        <p id="decrypted" class="output-box"></p>
+    </div>
+</body>
+</html>

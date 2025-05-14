@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - L&amp;A Café</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Coffee</a></li>
+                <li><a href="desserts.html">Desserts</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Your Cart</h1>
+        <table id="cart-items" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filled by JavaScript -->
+            </tbody>
+        </table>
+
+        <h3 style="margin-top: 30px;">Total: $<span id="cart-total">0.00</span></h3>
+
+        <button class="button" onclick="checkout()">Checkout</button>
+    </div>
+</body>
+</html>
