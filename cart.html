@@ -3,148 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - L&amp;A Café</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-    <title>Coffee Menu - L&amp;A Café</title>
 </head>
 <body>
     <header>
         <nav class="navbar">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
+                <li><a href="menu.html">Coffee</a></li>
+                <li><a href="desserts.html">Desserts</a></li>
                 <li><a href="cart.html">Cart</a></li>
-                <li><a href="encryption.html">Encryption Demo</a></li>
             </ul>
         </nav>
     </header>
+
     <div class="container">
-        <h1>Our Coffee Menu</h1>
-        <div class="products">
-            <div class="product">
-                <img src="images/latte.jpg" alt="Latte">
-                <h2>Classic Latte</h2>
-                <p>$5</p>
-                <button class="button add-to-cart" data-name="Classic Latte" data-price="5">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/iced-coffee.jpg" alt="Iced Coffee">
-                <h2>Iced Coffee</h2>
-                <p>$4.5</p>
-                <button class="button add-to-cart" data-name="Iced Coffee" data-price="4.5">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/cappuccino.jpg" alt="Cappuccino">
-                <h2>Cappuccino</h2>
-                <p>$5.5</p>
-                <button class="button add-to-cart" data-name="Cappuccino" data-price="5.5">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+        <h1>Your Cart</h1>
+        <table id="cart-items" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filled by JavaScript -->
+            </tbody>
+        </table>
 
+        <h3 style="margin-top: 30px;">Total: $<span id="cart-total">0.00</span></h3>
 
-قال ChatGPT:
-شكرًا لإرسالك نسخة من menu.html 👇
-خليني أراجعها بناءً على سؤالك: هل الكود فيه خطأ يخلي السلة تظهر السعر القديم؟
-
-✅ التحليل:
-منتج 1:
-html
-نسخ
-تحرير
-<p>$5</p>
-<button class="button add-to-cart" data-name="Classic Latte" data-price="5">Add to Cart</button>
-✅ السعر في <p> = 5
-✅ data-price="5" ← ✅ متطابق
-
-منتج 2:
-html
-نسخ
-تحرير
-<p>$4.5</p>
-<button class="button add-to-cart" data-name="Iced Coffee" data-price="4.5">Add to Cart</button>
-✅ متطابق
-
-منتج 3:
-html
-نسخ
-تحرير
-<p>$5.5</p>
-<button class="button add-to-cart" data-name="Cappuccino" data-price="5.5">Add to Cart</button>
-✅ متطابق
-
-✅ النتيجة:
-📌 هذي الصفحة سليمة 100%
-
-الأسعار الظاهرة نفسها اللي تروح للسلة
-
-data-price صحيح
-
-ما في أي خطأ يسبب ظهور السعر القديم
-
-✅ التوصيات:
-إذا لا تزال تشوف السعر القديم في السلة، فالحل الوحيد:
-
-js
-نسخ
-تحرير
-localStorage.removeItem('cart');
-لأن السلة تحتفظ بالأسعار القديمة من قبل ما تسوي هذا التعديل.
-
-هل تبي أراجع desserts.html أيضًا؟
-أو تبي أضيف كود تلقائي يحذف السلة القديمة لو تغيرت الأسعار؟
-
-
-
-
-
-
-
-أنت قلت:
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-    <title>Coffee Menu - L&amp;A Café</title>
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="encryption.html">Encryption Demo</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="container">
-        <h1>Our Coffee Menu</h1>
-        <div class="products">
-            <div class="product">
-                <img src="images/latte.jpg" alt="Latte">
-                <h2>Cafe Mocha</h2>
-                <p>$24.00</p>
-                <button class="button add-to-cart" data-name="Classic Latte" data-price="5">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/iced-coffee.jpg" alt="Iced Coffee">
-                <h2>Dark Caramel</h2>
-                <p>$16.00</p>
-                <button class="button add-to-cart" data-name="Iced Coffee" data-price="4.5">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/cappuccino.jpg" alt="Cappuccino">
-                <h2>Americano</h2>
-                <p>$22.00</p>
-                <button class="button add-to-cart" data-name="Cappuccino" data-price="5.5">Add to Cart</button>
-            </div>
-        </div>
+        <button class="button" onclick="checkout()">Checkout</button>
     </div>
 </body>
 </html>
