@@ -7,11 +7,10 @@ function updateCartDisplay() {
     let total = 0;
 
     cart.forEach((item, index) => {
-        const row = document.createElement('tr');
-
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
 
+        const row = document.createElement('tr');
         row.innerHTML = `
             <td>${item.name}</td>
             <td>$${item.price.toFixed(2)}</td>
@@ -19,7 +18,6 @@ function updateCartDisplay() {
             <td>$${itemTotal.toFixed(2)}</td>
             <td><button onclick="removeItem(${index})">Remove</button></td>
         `;
-
         tableBody.appendChild(row);
     });
 
@@ -27,9 +25,9 @@ function updateCartDisplay() {
 }
 
 function addToCart(name, price) {
-    const existing = cart.find(item => item.name === name);
-    if (existing) {
-        existing.quantity += 1;
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1;
     } else {
         cart.push({ name, price, quantity: 1 });
     }
@@ -44,22 +42,30 @@ function removeItem(index) {
 }
 
 function checkout() {
-    alert("Checkout not implemented yet.");
-}
-
-// Call on page load if on cart.html
-if (window.location.pathname.includes("cart.html")) {
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+    alert("Thank you for your order!");
+    cart = [];
+    localStorage.removeItem('cart');
     updateCartDisplay();
 }
 
-// Attach to all add-to-cart buttons
+// Run on cart page only
+if (window.location.pathname.includes("cart.html")) {
+    document.addEventListener("DOMContentLoaded", updateCartDisplay);
+}
+
+// Hook add-to-cart buttons on other pages
 document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll('.add-to-cart');
+    const buttons = document.querySelectorAll(".add-to-cart");
     buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const name = button.getAttribute('data-name');
-            const price = parseFloat(button.getAttribute('data-price'));
+        button.addEventListener("click", () => {
+            const name = button.getAttribute("data-name");
+            const price = parseFloat(button.getAttribute("data-price"));
             addToCart(name, price);
         });
     });
 });
+
